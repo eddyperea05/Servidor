@@ -6,13 +6,31 @@ hbs.registerHelper('obtenerPromedio', (nota1, nota2, nota3) => {
 
 hbs.registerHelper('listar', () => {
     listaEstudiantes = require('./listado.json')
-    let texto = ' Listas de Estudiantes'
+        //let texto = ' Listas de Estudiantes<br>'
+    let texto = "<table> \
+    <thead> \
+    <th>Nombre</th> \
+    <th>Matematicas</th> \
+    <th>Ingles</th> \
+    <th>Programación</th> \
+    </thead><tbody>"
     listaEstudiantes.forEach(element => {
         texto = texto +
-            'Nombre ' + element.nombre + '<br>' +
-            'Matematicas ' + element.matematicas + '<br>' +
-            'Ingles ' + element.ingles + '<br>' +
-            'Programacion ' + element.programacion + '<br>'
+            "<tr>" +
+            "<th>" +
+            element.nombre +
+            "</th>" +
+            "<th>" +
+            element.matematicas +
+            "</th>" +
+            "<th>" +
+            element.ingles +
+            "</th>" +
+            "<th>" +
+            element.programacion +
+            "</th>" +
+            "</tr>"
     });
+    texto += "</tbody></table>"
     return texto
 })
